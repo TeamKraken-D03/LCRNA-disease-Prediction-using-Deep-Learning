@@ -1,6 +1,6 @@
 # lncRNA-Disease Association Prediction Using Machine Learning Methods
 
-**Authors**: [Your Names Here]
+**Authors**: Naren Sundar L, Renny Harlin, Vatturu Pardheev, Charuvarthan T
 
 This project focuses on predicting associations between **lncRNAs** (long non-coding RNAs) and diseases using machine learning techniques. By analyzing biological data, the project aims to identify patterns and relationships that can help in better understanding the role of lncRNAs in disease progression and diagnosis.
 
