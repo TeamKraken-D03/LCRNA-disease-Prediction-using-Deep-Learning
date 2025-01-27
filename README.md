@@ -14,7 +14,7 @@ This project focuses on predicting associations between **lncRNAs** (long non-co
 
 ## Academic Context
 
-This project is part of our 2nd Semester **M.Sc. Biotechnology** coursework. It was undertaken for the subjects:
+This project is part of our 2nd Semester **B.Tech Artificial Intelligence and Engineering (AIE)** coursework. It was undertaken for the subjects:
 
 - **22BIO211 Intelligence of Biological Systems**
 - **22AIE212 Design and Analysis of Algorithms**
