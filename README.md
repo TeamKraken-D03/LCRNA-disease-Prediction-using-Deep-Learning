@@ -6,11 +6,7 @@ This project focuses on predicting associations between **lncRNAs** (long non-co
 
 ## Project Details
 
-- **Objective**: Develop a machine learning-based system to predict lncRNA-disease associations with high accuracy.
-- **Key Components**:
-  - Feature extraction and preprocessing of biological datasets.
-  - Implementation of machine learning algorithms such as SVM, Random Forest, and Neural Networks.
-  - Evaluation of model performance and validation with existing datasets.
+- **Objective**: Develop a machine learning-based system to predict lncRNA-disease associations.
 
 ## Academic Context
 
