@@ -16,13 +16,17 @@ function App() {
         try {
             setError('');
             const endpoint = searchType === 'symbol' ? `ncRNA/${searchTerm}` : `ncRNA/disease/${searchTerm}`;
-            const response = await axios.get(`http://127.0.0.1:5000/${endpoint}`);
+            const response = await axios.get(`http://127.0.0.1:8000/${endpoint}`);
             setData(response.data);
         } catch (err) {
             setData([]);
             setError(err.response?.data?.error || "Error fetching data");
         }
     };
+    const columnOrder = [
+        "PubMed ID", "ncRNA Symbol", "ncRNA Category", "Species", "Disease Name",
+        "Sample", "Dysfunction Pattern", "Validated Method",  "Causality"
+    ];
 
     return (
         <div style={{ padding: '20px', maxWidth: '600px', margin: '0', textAlign: 'center' }}>
@@ -77,24 +81,24 @@ function App() {
             {/* Display Results in Table */}
             <div style={{display: 'flex', alignItems: 'center'}}>
             {data.length > 0 && (
-                <table border="1" style={{ borderColor: 'blue' }}>
-                    <thead>
-                        <tr style={{ background: '#3d4f63' }}>
-                            {Object.keys(data[0]).map((key) => (
-                                <th key={key} style={{ padding: '8px', color: 'Black'}}>{key}</th>
-                            ))}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data.map((item, index) => (
-                            <tr key={index}>
-                                {Object.values(item).map((value, i) => (
-                                    <td key={i} style={{ padding: '15px' }}>{value}</td>
-                                ))}
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+               <table border="1" style={{ borderColor: 'blue' }}>
+               <thead>
+                   <tr style={{ background: '#3d4f63' }}>
+                       {columnOrder.map((key) => (
+                           <th key={key} style={{ padding: '8px', color: 'Black' }}>{key}</th>
+                       ))}
+                   </tr>
+               </thead>
+               <tbody>
+                   {data.map((item, index) => (
+                       <tr key={index}>
+                           {columnOrder.map((key, i) => (
+                               <td key={i} style={{ padding: '15px' }}>{item[key]}</td>
+                           ))}
+                       </tr>
+                   ))}
+               </tbody>
+           </table>
             )}
             </div>
         </div>
