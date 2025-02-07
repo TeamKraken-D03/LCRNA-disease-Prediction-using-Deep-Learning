@@ -25,7 +25,7 @@ function App() {
     };
     const columnOrder = [
         "PubMed ID", "ncRNA Symbol", "ncRNA Category", "Species", "Disease Name",
-        "Sample", "Dysfunction Pattern", "Validated Method",  "Causality"
+        "Sample", "Dysfunction Pattern", "Causality"
     ];
 
     return (
@@ -71,7 +71,7 @@ function App() {
                     }
                 }}
             />
-            <button onClick={fetchData} style={{ padding: '10px', marginLeft: '5px', cursor: 'pointer', borderRadius: '50px',fontSize: '15px' }}>
+            <button onClick={fetchData} style={{ padding: '10px', margin: '15px', cursor: 'pointer', borderRadius: '50px',fontSize: '15px' }}>
             🔍Search
             </button>
             </div>
@@ -81,7 +81,7 @@ function App() {
 {/* Display Results in Table */}
 <div style={{ display: 'flex', alignItems: 'center' }}>
   {data.length > 0 && (
-    <table border="1" style={{ borderColor: 'white', borderRadius: '10px', marginLeft: '120px' }}>
+    <table border="1" style={{ borderColor: 'white', borderRadius: '10px', marginLeft: '50%' }}>
       <thead>
         <tr style={{ background: 'steelblue' }}>
           {columnOrder.map((key) => (
