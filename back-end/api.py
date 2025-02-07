@@ -88,4 +88,4 @@ async def get_ncRNA_by_disease(disease: str):
         raise HTTPException(status_code=500, detail=f"MySQL Error: {err}")
 
 # Run using: uvicorn filename:app --reload [filename = api.py]
-#unicorn api:app --reload
+#uvicorn api:app --reload
