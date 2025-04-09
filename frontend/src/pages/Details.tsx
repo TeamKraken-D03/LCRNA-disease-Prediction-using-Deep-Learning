@@ -191,8 +191,9 @@ export default function Details(diseasedata: DiseaseData) {
                         // Adjust node size based on number of items (larger in fullscreen)
                         const nodeSize = associatedDiseases.length > 15 ? 8 : 12;
                         
-                        const left = `calc(50% + ${radius * Math.cos(angle)}px - ${nodeSize/2}px)`;
-                        const top = `calc(50% + ${radius * Math.sin(angle)}px - ${nodeSize/2}px)`;
+                        // Calculate exact position at the end of the line
+                        const left = `calc(50% + ${radius * Math.cos(angle)}px)`;
+                        const top = `calc(50% + ${radius * Math.sin(angle)}px)`;
                         
                         return (
                           <div 
@@ -201,6 +202,7 @@ export default function Details(diseasedata: DiseaseData) {
                             style={{ 
                               left, 
                               top,
+                              transform: 'translate(-50%, -50%)',
                               transition: 'all 0.5s ease-in-out' 
                             }}
                           >
@@ -210,13 +212,6 @@ export default function Details(diseasedata: DiseaseData) {
                                    width: `${radius}px`,
                                    transform: `rotate(${angle + Math.PI}rad)`,
                                  }}>
-                              {/* Animated pulse on the line */}
-                              <div className="absolute h-2 w-2 rounded-full bg-green-500 animate-pulse" 
-                                   style={{ 
-                                     left: `${radius/2}px`, 
-                                     top: "-3px" 
-                                   }}>
-                              </div>
                             </div>
                             
                             {/* Disease node */}
@@ -228,17 +223,9 @@ export default function Details(diseasedata: DiseaseData) {
                                  title={disease.CausalDescription}>
                             </div>
                             
-                            {/* Disease name label */}
-                            <div className="absolute whitespace-nowrap w-auto max-w-40" 
-                                 style={{
-                                   left: `calc(${Math.cos(angle) < 0 ? '-100%' : '50%'})`,
-                                   top: `calc(${Math.sin(angle) < 0 ? '-100%' : '50%'})`,
-                                   transform: `translate(${Math.cos(angle) < 0 ? '-10px' : '10px'}, ${Math.sin(angle) < 0 ? '-10px' : '10px'})`,
-                                 }}>
-                              <p className="text-xs font-medium text-foreground bg-background/80 px-1 py-0.5 rounded truncate max-w-[100px] sm:max-w-[150px] md:max-w-[200px]" 
-                                 style={{
-                                   textAlign: Math.cos(angle) < 0 ? 'right' : 'left',
-                                 }}
+                            {/* Disease name label - now positioned directly below node */}
+                            <div className="absolute w-auto left-1/2 -translate-x-1/2 mt-1 top-full">
+                              <p className="text-xs font-medium text-foreground bg-background/80 px-1 py-0.5 rounded truncate max-w-[120px] sm:max-w-[150px] md:max-w-[180px] text-center" 
                                  title={disease.DiseaseName}>
                                 {disease.DiseaseName}
                               </p>
