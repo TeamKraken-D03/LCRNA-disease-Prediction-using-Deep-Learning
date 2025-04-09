@@ -28,7 +28,6 @@ export default function Navbar() {
             <Link to="/smithwaterman" className="hover:text-gray-300 transition">Smith-Waterman</Link>
             <Separator className="bg-gray-600 h-5 w-0.5" orientation="vertical" />
 
-            <Link to="/DL" className="hover:text-gray-300 transition">Deep Learning</Link>
           </div>
 
           {/* Theme Toggle */}
